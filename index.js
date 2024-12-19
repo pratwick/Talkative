@@ -2,7 +2,6 @@ import "./env.js";
 import express from "express";
 import http from "http";
 import path from "path";
-
 import { Server } from "socket.io";
 import cors from "cors";
 import Chat from "./chatter.schema.js";
@@ -11,7 +10,6 @@ import { connectToDatabase } from "./db.config.js";
 // Express app and configure middleware
 export const app = express();
 app.use(cors());
-
 app.use(express.static(path.resolve("public")));
 
 // HTTP server using Express app
@@ -34,8 +32,6 @@ let onlineUser = [];
 
 // Event handling for Socket.IO connections
 io.on("connection", (socket) => {
-  // console.log("Connection Made ");
-
   // Event: User joins
   socket.on("join", async (name) => {
     const oldMessage = await Chat.find();
@@ -68,12 +64,29 @@ io.on("connection", (socket) => {
     const indexToRemove = onlineUser.findIndex((user) => user.id == socket.id);
     onlineUser.splice(indexToRemove, 1);
     io.emit("onlineUser", onlineUser);
-    // console.log("Connection disconnected.");
   });
 });
 
+// Cleanup function to delete chats when the server exits
+const cleanup = async () => {
+  try {
+    console.log("Server is shutting down. Deleting all chats...");
+    await Chat.deleteMany({});
+    console.log("All chats have been deleted.");
+  } catch (error) {
+    console.error("Error during cleanup:", error);
+  } finally {
+    process.exit(); // Ensure the process exits
+  }
+};
+
+// Listen for exit signals to trigger cleanup
+process.on("SIGINT", cleanup); // For Ctrl+C
+process.on("SIGTERM", cleanup); // For termination signals (e.g., from Docker or PM2)
+process.on("exit", cleanup); // General exit
+
+// Start the server and connect to the database
 server.listen(3000, () => {
   console.log("Server is running on port : 3000....");
-  // call the connect to database here
   connectToDatabase();
 });

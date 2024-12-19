@@ -17,13 +17,13 @@ body {
   position: absolute;
   text-align: center;
   top: 35%;
-  left: 20%;
-  width: 50%;
+  left: 17%;
+  width: 30%;
   min-width: 200px;
   height: 20%;
   min-height: 200px;
-  background-color: #005a13;
-  border-radius: 10px;
+  background-color: #072319d4;
+  border-radius: 24px;
   padding: 12px;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.8);
   z-index: 10;
@@ -37,20 +37,27 @@ body {
 }
 /* CSS for input in form-group */
 .form-group input {
-  padding: 10px;
-  margin: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 14px;
+  padding: 13px;
+  margin: 12px;
+  border-radius: 16px;
+  font-size: 16px;
+  border: none;
 }
 
+.form-group{
+  margin-top: 2rem;
+}
+
+
+
 #my-prompt button {
-  padding: 10px;
-  width: 15vh;
-  margin: 10px 10px 40%;
-  border: 1px solid #ccc;
+  padding: 5px;
+  width: 7rem;
+  margin: 13px 10px 9%;
   border-radius: 5px;
-  font-size: 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 22px;
 }
 
 /* main .container CSS */
@@ -64,9 +71,9 @@ body {
 /* CSS for main heading */
 .chatterup-heading {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: #ff0000;
+  color: #d1d0d0;
   text-align: center;
-  margin: 0.8rem 0;
+  margin: 1.8rem 0;
   font-size: 3rem;
   font-weight: 800;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
@@ -78,11 +85,13 @@ body {
   flex-direction: column;
   width: 20%;
   min-width: 350px;
-  background-color: #f5f5f5;
+  background-color: #6f39397a;
   padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  border-radius: 11px;
+  box-shadow: 0 0 34px rgb(116 116 116);
+  margin-right: 1rem;
 }
+
 
 h2 {
   margin-bottom: 15px;
@@ -120,14 +129,14 @@ h2 {
   margin-left: auto;
 }
 #count {
-  font-size: large;
+  font-size: 1.5rem;
   color: #4caf50;
 }
 
 #welcome {
   font-size: 1.5rem;
   font-weight: 700;
-  margin: 0.5rem 0;
+  margin: 1.5rem 0;
   color: rgb(56, 153, 51);
 }
 
@@ -141,22 +150,25 @@ h2 {
 
 /* CSS for left container start */
 .left-container {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  min-width: 350px;
-  align-items: center;
-  border: 10px solid whitesmoke;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-  background-image: url("images/bg.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+      display: flex;
+      flex-direction: column;
+      width: 47%;
+      min-width: 350px;
+      align-items: center;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+      background-image: url(images/bg.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin-right: 6rem;
+  }
+
 
 /* Add new message in left container  */
 #message-form-div {
-  width: 100%;
+  width: 85%;
+  margin-bottom: 1rem;
 }
 #new-message {
   display: flex;
@@ -176,7 +188,7 @@ h2 {
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 14px;
-  margin-right: 10px;
+  margin-right: 2rem;
 }
 
 button {
@@ -207,7 +219,7 @@ button:hover {
   justify-content: flex-end;
   width: 100%;
   min-width: 300px;
-  margin: 5px;
+  margin: 5px -2rem;
   padding-right: 10px;
 }
 
